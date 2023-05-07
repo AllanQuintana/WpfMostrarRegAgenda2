@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfMostrarRegAgenda2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMostrarRegAgenda2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="Mostrar registro agenda " HorizontalAlignment="Left" Margin="310,20,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="lsvRegistros" HorizontalAlignment="Left" Height="342" Margin="310,66,0,0" VerticalAlignment="Top" Width="427" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="114,124,0,0" VerticalAlignment="Top" Click="btnBuscar_Click"/>
+        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="114,172,0,0" VerticalAlignment="Top" Click="btnLimpiar_Click"/>
+        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="114,217,0,0" VerticalAlignment="Top" Click="btnSalir_Click"/>
+
+    </Grid>
+</Window>
