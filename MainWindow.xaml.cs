@@ -38,23 +38,19 @@ namespace WpfMostrarRegAgenda2
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            FileStream f;
-            StreamReader fr;
+            string filePath = @"C:\Users\allan\Documents\Programas\WpfAgenda2\bin\Debug\MiAgenda2.txt";
 
-            string linea;
-            string[] campo;
-            string registro;
+            this.lsvRegistros.Items.Clear();
 
-            this.lsvRegistros.Items.Clear() ;
-
-            f = new FileStream("MiAgenda2.txt", FileMode.Open, FileAccess.Read);
-            fr = new StreamReader(f);
-            while (!fr.EndOfStream)
+            using (var streamReader = new StreamReader(filePath))
             {
-                linea = fr.ReadLine();
-                campo = linea.Split(',');
-                registro = campo[0] + "-" + campo[1];
-                this.lsvRegistros.Items.Add(registro);
+                string line;
+                while ((line = streamReader.ReadLine()) != null)
+                {
+                    var fields = line.Split(',');
+                    var record = fields[0] + "-" + fields[1];
+                    this.lsvRegistros.Items.Add(record);
+                }
             }
         }
     }
